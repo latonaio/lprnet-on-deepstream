@@ -1,0 +1,16 @@
+version: "3"
+services:
+  deepstream-lprnet:
+    container_name: deepstream-lprnet
+    privileged: yes
+    network_mode: host
+    image: latonaio/deepstream-lprnet:latest
+    runtime: nvidia
+    volumes:
+      - ./:/app/mnt
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev:/dev
+    environment:
+      - DISPLAY
+    working_dir: /app/src
+    tty: true
